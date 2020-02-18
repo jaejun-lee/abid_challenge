@@ -4,13 +4,13 @@ import os.path
 import numpy as np
 import random
 
-img_dir= "data/bin-images/"
-meta_dir = "data/metadata/"
+img_dir= "/home/jaejun/workspace/abid_challenge/dataset/data/bin-images/"
+meta_dir = "/home/jaejun/workspace/abid_challenge/dataset/data/metadata/"
 
-#img_list = listdir(img_dir)
-#N = len(img_list)
-N = 535234
-list_random = range(N)
+img_list = listdir(img_dir)
+N = len(img_list)
+#N = 535234
+list_random = list(range(N))
 random.shuffle(list_random)
 
 # finding images that metadata exists
@@ -34,8 +34,8 @@ for i in range(N):
             break
 
 # writing out to textfile
-train_f = open('random_train.txt','w')
-val_f = open('random_val.txt','w')
+train_f = open('./random_train.txt','w')
+val_f = open('./random_val.txt','w')
 for i in range(N):
     if meta_avail[i]:
         if valset[i]:

@@ -6,9 +6,9 @@ import json
 import random
 
 # loading metaata
-random_train = "random_train.txt"
-random_val = "random_val.txt"
-metadata_file = "metadata.json"
+random_train = "/home/jaejun/workspace/abid_challenge/dataset/random_train.txt"
+random_val = "/home/jaejun/workspace/abid_challenge/dataset/random_val.txt"
+metadata_file = "/home/jaejun/workspace/abid_challenge/dataset/metadata.json"
 
 hard = False
 
@@ -43,15 +43,15 @@ if __name__ == "__main__":
 
     print("dumping train and val sets into json file")
     if hard:
-        out_fname = 'counting_train_hard.json'
+        out_fname = '/home/jaejun/workspace/abid_challenge/dataset/counting_train_hard.json'
     else:
-        out_fname = 'counting_train.json'
-    with open(out_fname,'wb') as f:
+        out_fname = '/home/jaejun/workspace/abid_challenge/dataset/counting_train.json'
+    with open(out_fname,'w') as f:
         json.dump(train_list,f)
 
     if hard:
-        out_fname = 'counting_val_hard.json'
+        out_fname = '/home/jaejun/workspace/abid_challenge/dataset/counting_val_hard.json'
     else:
-        out_fname = 'counting_val.json'
-    with open(out_fname,'wb') as f:
+        out_fname = '/home/jaejun/workspace/abid_challenge/dataset/counting_val.json'
+    with open(out_fname,'w') as f:
         json.dump(val_list,f)

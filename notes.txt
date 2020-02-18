@@ -1,0 +1,7 @@
+10:51 $ aws s3 ls s3://aft-vbi-pds
+                           PRE bin-images/
+                           PRE metadata/
+2017-01-16 12:10:34      22309 LICENSE
+2016-06-25 14:17:05        184 NOTICE
+2016-06-23 20:56:47       3976 index.html
+

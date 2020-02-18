@@ -2,15 +2,15 @@ from PIL import Image
 from os import listdir
 import os.path
 
-img_dir = "data/bin-images/"
-resized_img_dir = "data/bin-images-resize/"
+img_dir = "/home/jaejun/workspace/abid_challenge/dataset/data/bin-images/"
+resized_img_dir = "/home/jaejun/workspace/abid_challenge/dataset/data/bin-images-resize/"
 
 if not os.path.exists(resized_img_dir):
     os.makedirs(resized_img_dir)
 
-#img_list = listdir(img_dir)
-#N = len(img_list)
-N = 535234
+img_list = listdir(img_dir)
+N = len(img_list)
+#N = 535234
 count = 0
 for i in range(N):
     fname = '%05d.jpg' % (i+1)

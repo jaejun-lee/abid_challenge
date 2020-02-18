@@ -5,21 +5,22 @@ import numpy as np
 import random
 import json
 
-img_dir= "data/bin-images/"
-meta_dir = "data/metadata/"
+img_dir= "/home/jaejun/workspace/abid_challenge/dataset/data/bin-images/"
+meta_dir = "/home/jaejun/workspace/abid_challenge/dataset/data/metadata/"
 
 # getting whole metadata list 
 def get_metadata(img_dir,meta_dir):
     metadata=[]
     n_images=0
-#    img_list = listdir(img_dir)
-#    N = len(img_list)
-    N = 535234
+    img_list = listdir(img_dir)
+    N = len(img_list)
+    #N = 535234
     for i in range(N):
         if i%1000 == 0:
             print("get_metadata: processing (%d/%d)..." % (i,N))
         jpg_path = '%s%05d.jpg' % (img_dir,i+1)
         json_path = '%s%05d.json' % (meta_dir,i+1)
+    
         if os.path.isfile(jpg_path) and os.path.isfile(json_path):
             d = json.loads(open(json_path).read())
             metadata.append(d)
@@ -40,7 +41,7 @@ def get_instance_data(metadata):
             quantity = metadata[i]['EXPECTED_QUANTITY']
             if quantity>0:
                 bin_info = metadata[i]['BIN_FCSKU_DATA']
-                bin_keys = bin_info.keys()
+                bin_keys = list(bin_info.keys())
                 for j in range(0,len(bin_info)):
                     instance_info = bin_info[bin_keys[j]]
                     asin = instance_info['asin']
@@ -64,10 +65,10 @@ def get_instance_data(metadata):
 if __name__ == '__main__':
     metadata,n_images = get_metadata(img_dir, meta_dir)
     instances = get_instance_data(metadata)
-    # dumping out all metadata into a file
-    print("dumping metadata.json...")
-    with open('metadata.json','w') as fp:
-        json.dump(metadata,fp)
-    print("dumping instances.json...")
-    with open('instances.json','w') as fp:
-        json.dump(instances,fp)
+    # # dumping out all metadata into a file
+    # print("dumping metadata.json...")
+    # with open('/home/jaejun/workspace/abid_challenge/dataset/metadata.json','w') as fp:
+    #     json.dump(metadata,fp)
+    # print("dumping instances.json...")
+    # with open('/home/jaejun/workspace/abid_challenge/dataset/instances.json','w') as fp:
+    #     json.dump(instances,fp)
